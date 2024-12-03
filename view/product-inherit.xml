@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="inherit_view_product_category" model="ir.ui.view">
+        <field name="name">product.category.view.form.inherit</field>
+        <field name="model">product.category</field>
+        <field name="inherit_id" ref="product.product_category_form_view"/>
+        <field name="arch" type="xml">
+            <xpath expr="//group[@name = 'first']" position="after">
+                <label for="descuento_max"></label>
+                <field name="descuento_max" string="Descuento Maximo" groups="base.group_user_admin" invisible="parent_id"/>
+            </xpath>
+        </field>
+    </record>
+
+</odoo>
