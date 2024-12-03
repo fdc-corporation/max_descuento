@@ -6,6 +6,9 @@
         <record id="group_user_ventas" model="res.groups">
             <field name="name">Descuento aplicable</field>
         </record>
+        <record id="group_user_ventas_admin" model="res.groups">
+            <field name="name">Administrador de descuento</field>
+        </record>
     </data>
     
 </odoo>
