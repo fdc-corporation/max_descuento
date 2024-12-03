@@ -6,7 +6,7 @@
         <field name="model">product.category</field>
         <field name="inherit_id" ref="product.product_category_form_view"/>
         <field name="arch" type="xml">
-            <xpath expr="//group[@name = 'first']" position="after">
+            <xpath expr="//group[@name = 'first']" position="inside">
                 <label for="descuento_max"></label>
                 <field name="descuento_max" string="Descuento Maximo" groups="base.group_user_admin" invisible="parent_id"/>
             </xpath>
