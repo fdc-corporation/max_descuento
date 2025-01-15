@@ -40,10 +40,8 @@ class SaleDescuento(models.Model):
                     if line.product_template_id.detailed_type == 'product':
                         if line.price_unit != line.product_template_id.list_price:
                             # Si el precio unitario no es igual al precio de lista y el producto es nuevo, no se modifica
-                            print("---------------------------------------- PRECIO --------------------------------------")
-                            print(line.price_unit)
-                            print(line.product_template_id.list_price)
-                            if line.id and line.price_unit != line.product_template_id.list_price:
+                            precio = round(line.price_unit, 2) 
+                            if line.id and precio != line.product_template_id.list_price:
                                 raise UserError(
                                     f"Usted no tiene permitido cambiar el precio establecido en el producto '{line.product_id.name}' "
                                     f"al precio de lista de '{line.product_template_id.list_price}'."
