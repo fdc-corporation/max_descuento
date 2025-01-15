@@ -36,6 +36,10 @@ class SaleDescuento(models.Model):
             for line in record.order_line:
                 if line.product_template_id.detailed_type == 'product':
                     if line.price_unit != line.product_template_id.list_price:
+                        print("--------------------------PRECIO")
+                        print(line.product_template_id.name)
+                        print(line.price_unit)
+                        print(line.product_template_id.list_price)
                         raise UserError(
                             f"Usted no tiene permitido cambiar el precio establecido en el producto '{line.product_id.name}' "
                         )
