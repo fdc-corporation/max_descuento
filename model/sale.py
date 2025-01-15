@@ -27,8 +27,9 @@ class SaleDescuento(models.Model):
                             f"El descuento {line.discount}% del producto '{line.product_id.name}' excede el "
                             f"descuento máximo permitido en la categoría '{line.product_template_id.categ_id.name}'."
                         )
-                    if line.price_unit != line.product_template_id.list_price:
-                        raise UserError(
-                            f"Usted no tiene permitido cambiar el procio establecido en el producto '{line.product_id.name}' "
-                        )
+                    if line.product_template_id == 'product':
+                        if line.price_unit != line.product_template_id.list_price:
+                            raise UserError(
+                                f"Usted no tiene permitido cambiar el procio establecido en el producto '{line.product_id.name}' "
+                            )
                     
