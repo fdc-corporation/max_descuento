@@ -29,8 +29,9 @@ class SaleDescuento(models.Model):
                         )
                     if line.product_template_id.detailed_type == 'product':
                         if line.price_unit != line.product_template_id.list_price:
-                            line.price_unit = line.product_template_id.list_price
-                            raise UserError(
-                                f"Usted no tiene permitido cambiar el procio establecido en el producto '{line.product_id.name}' "
-                            )
+                             if line.product_id.id != line.product_template_id.id:
+                                line.price_unit = line.product_template_id.list_price
+                                raise UserError(
+                                    f"Usted no tiene permitido cambiar el precio establecido en el producto '{line.product_id.name}' "
+                                )
                     
