@@ -9,14 +9,14 @@ class SaleDescuento(models.Model):
         # Verifica si hay cambios en las líneas de pedido
         if 'order_line' in vals:
             self.max_descuento()
-            self.uodate_price_product()
+            # self.uodate_price_product()
         return res
 
     def create(self, vals):
         res = super(SaleDescuento, self).create(vals)
         if 'order_line' in vals:
             self.max_descuento()
-            self.uodate_price_product()
+            # self.uodate_price_product()
         return res
 
     def max_descuento(self):
